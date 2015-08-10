@@ -128,6 +128,10 @@ public class Catalogo extends javax.swing.JFrame {
         rutai=fichero.getPath().replace('\\','/');
         }
         jLabel1.setText(rutai);
+        ImageIcon j1 = new ImageIcon(rutai);
+        Icon ij1 = new ImageIcon(j1.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_DEFAULT));
+        jLabel2.setIcon(ij1);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -152,6 +156,8 @@ public class Catalogo extends javax.swing.JFrame {
             }else{
                  Practica1_201020559.catalogo.insertarFinal((String)jComboBox1.getSelectedItem(), ij1);
             }
+            jLabel2.setIcon(null);
+            jLabel1.setText("");
         }
         
         
@@ -160,6 +166,9 @@ public class Catalogo extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         Practica1_201020559.catalogo.imprimir();
+        VCatalogo ventana = new VCatalogo();
+        ventana.contador = 1;
+        ventana.show();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

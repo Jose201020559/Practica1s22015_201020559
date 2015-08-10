@@ -15,22 +15,38 @@ public class ListaDC {
     
     private NodoC primero;
     private NodoC ultimo;
+    private int tama;
     
     public ListaDC(){
         this.primero = null;
         this.ultimo = null;
+        this.tama  = 0;
+    }
+    
+    public NodoC getPrimero(){
+        return this.primero;
+    }
+    
+    public NodoC getUltimo(){
+        return this.ultimo;
+    }
+    
+    public int getTama(){
+        return this.tama;
     }
     
     public void insertarInicio(String dato, Icon ima){
         if (this.primero == null){
             this.primero = new NodoC(dato, ima, null, null);
             this.ultimo = this.primero;
+            this.tama++;
         }
         else {
             NodoC nuevo = new NodoC(dato, ima, null, null);
             nuevo.setSiguiente(this.primero);
             this.primero.setAnterior(nuevo);
             this.primero = nuevo;
+            this.tama++;
         }
     }
     
@@ -38,12 +54,14 @@ public class ListaDC {
         if(this.primero == null){
             this.primero = new NodoC(dato, ima, null, null);
             this.ultimo = this.primero;
+            this.tama++;
         }
         else{
             NodoC nuevo = new NodoC(dato, ima, null, null);
             this.ultimo.setSiguiente(nuevo);
             nuevo.setAnterior(this.ultimo);
             this.ultimo = nuevo;
+            this.tama++;
         }
     }
     
@@ -51,11 +69,13 @@ public class ListaDC {
         try{
             Icon ima = this.primero.getImagen();
             this.primero = this.primero.getSiguiente();
+            this.tama--;
             if(this.primero!=null){
                 this.primero.setAnterior(null);
             }else{
                 this.ultimo = null;
             }
+            
             return ima;
         } catch (Exception e){
             return null;
@@ -66,6 +86,7 @@ public class ListaDC {
         try{
             String n = this.ultimo.getNombre();
             this.ultimo = this.ultimo.getAnterior();
+            this.tama--;
             if(this.ultimo != null){
                 this.ultimo.setSiguiente(null);
             }else {
