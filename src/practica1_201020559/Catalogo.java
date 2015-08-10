@@ -45,6 +45,7 @@ public class Catalogo extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("INGRESO_CATALOGO");
         setResizable(false);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CASTILLO", "MARIO", "VIDA", "FICHA", "KOOPA", "GOOMBA", "PARED", "SUELO" }));
