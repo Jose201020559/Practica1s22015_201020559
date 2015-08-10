@@ -10,6 +10,7 @@ import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -144,14 +145,20 @@ public class Catalogo extends javax.swing.JFrame {
                     Practica1_201020559.catalogo.insertarFinal("CASTILLO", ij1);
                     Practica1_201020559.castillo = true;
                 }else{
-                    
+                    JOptionPane.showMessageDialog(this,
+                    "Ya ingreso un castillo al catalogo",
+                    "Atencion",
+                    JOptionPane.WARNING_MESSAGE);
                 }
             }else if(jComboBox1.getSelectedIndex() == 1){
                 if(Practica1_201020559.mario==false){
                     Practica1_201020559.catalogo.insertarFinal("MARIO", ij1);
                     Practica1_201020559.mario = true;
                 }else{
-
+                    JOptionPane.showMessageDialog(this,
+                    "Ya ingreso un personaje al catalogo",
+                    "Atencion",
+                    JOptionPane.WARNING_MESSAGE);
                 }
             }else{
                  Practica1_201020559.catalogo.insertarFinal((String)jComboBox1.getSelectedItem(), ij1);
@@ -165,7 +172,9 @@ public class Catalogo extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        System.out.println("LISTA CATALOGO");
         Practica1_201020559.catalogo.imprimir();
+        System.out.println("");
         VCatalogo ventana = new VCatalogo();
         ventana.contador = 1;
         ventana.show();

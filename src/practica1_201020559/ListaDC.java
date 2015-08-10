@@ -75,7 +75,6 @@ public class ListaDC {
             }else{
                 this.ultimo = null;
             }
-            
             return ima;
         } catch (Exception e){
             return null;
@@ -92,10 +91,40 @@ public class ListaDC {
             }else {
                 this.primero = null;
             }
-            return null;
+            return n;
         } catch (Exception e){
             return null;
         }
+    }
+    
+    public void eliminar(int v){
+            NodoC aux = this.primero;
+            NodoC auxs = this.primero.getSiguiente();
+            for(int i =1; i< v; i++){
+                aux = aux.getSiguiente();
+                auxs = aux.getSiguiente();
+            }
+            NodoC auxa = aux.getAnterior();
+            auxa.setSiguiente(auxs);
+            auxs.setAnterior(auxa);
+            this.tama --;
+    }
+    
+    public NodoC buscar(int v){
+        NodoC aux = this.primero;
+        for(int i = 1; i < v; i++){
+            aux = aux.getSiguiente();
+        }
+        return aux;
+    }
+    
+    public void modificar(String n, Icon i, int v){
+        NodoC aux = this.primero;
+        for(int j = 1; j < v; j++){
+            aux = aux.getSiguiente();
+        }
+        aux.setNombre(n);
+        aux.setImagen(i);
     }
     
     public void imprimir(){
@@ -105,4 +134,25 @@ public class ListaDC {
             pivot = pivot.getSiguiente();
         }
     }
+    
+    public String graficar(){
+        NodoC pivot = this.primero;
+        String dato = "";
+        dato+="subgraph { \n";
+        dato+="style=filled; \n";
+        dato+="color=lightgrey; \n";
+        dato+="node [shape=circle, color=red]; \n";
+        for(int i = 0; i<this.tama;i++){
+            dato+="D"+(i+1)+"[label=\" Nombre: "+ pivot.getNombre()+" || Imagen: "+ pivot.getImagen().toString() + "\"];\n";
+            pivot = pivot.getSiguiente();
+        }
+        pivot = this.primero;
+        for(int j = 0; j<this.tama;j++){
+            dato+="D"+(j+1)+" -> D"+(j+2)+"\n";
+            dato+="D"+(j+2)+" -> D"+(j+1)+"\n";
+        }
+        dato+="}";
+        return dato;
+    }
+    
 }

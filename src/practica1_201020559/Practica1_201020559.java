@@ -17,6 +17,7 @@ public class Practica1_201020559 {
     public static ListaDC catalogo = new ListaDC();
     public static boolean castillo = false;
     public static boolean mario = false;
+    public static int vm = 0;
 
     /**
      * @param args the command line arguments

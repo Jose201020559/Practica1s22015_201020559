@@ -91,6 +91,11 @@ public class VCatalogo extends javax.swing.JFrame {
         jLabel6.setText("0");
 
         jButton3.setText("EDITAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("ELIMINAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +234,33 @@ public class VCatalogo extends javax.swing.JFrame {
             jLabel3.setText(referencia.getNombre());
             jLabel6.setText(Integer.toString(contador));
             }
+            
         }
+        else{
+            if(referencia.getNombre().equalsIgnoreCase("MARIO")){
+                Practica1_201020559.mario = false;
+            }
+            if(referencia.getNombre().equalsIgnoreCase("CASTILLO")){
+                Practica1_201020559.castillo = false;
+            }
+                Practica1_201020559.catalogo.eliminar(contador);
+                referencia = Practica1_201020559.catalogo.getPrimero();
+                jLabel4.setText(Integer.toString(Practica1_201020559.catalogo.getTama()));
+                if(referencia!=null){
+                    contador = 1;
+                    jLabel1.setIcon(referencia.getImagen());
+                    jLabel3.setText(referencia.getNombre());
+                    jLabel6.setText(Integer.toString(contador));
+                }
+            }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Practica1_201020559.vm = contador;
+        modificar vm = new modificar();
+        vm.show();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
