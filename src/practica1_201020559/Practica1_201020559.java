@@ -18,6 +18,8 @@ public class Practica1_201020559 {
     public static boolean castillo = false;
     public static boolean mario = false;
     public static int vm = 0;
+    public static boolean pila = false;
+    public static boolean cola = false;
 
     /**
      * @param args the command line arguments
