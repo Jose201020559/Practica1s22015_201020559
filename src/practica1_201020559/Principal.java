@@ -6,6 +6,8 @@
 package practica1_201020559;
 
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -146,6 +148,14 @@ public class Principal extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+ 
+                File file = new File("C:\\Users\\Public\\Documents\\catalogo_mm.jpg");
+                Desktop.getDesktop().open(file);
+            } catch(Exception e) {
+
+                e.printStackTrace();
+            }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
