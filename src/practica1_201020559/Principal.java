@@ -180,6 +180,12 @@ public class Principal extends javax.swing.JFrame {
             "Atencion",
             JOptionPane.WARNING_MESSAGE);
         }
+        else if(Practica1_201020559.pila==false && Practica1_201020559.cola==false){
+            JOptionPane.showMessageDialog(this,
+            "Seleccione Metodo de Eliminacion",
+            "Atencion",
+            JOptionPane.WARNING_MESSAGE);
+        }
         else{
             JOptionPane.showMessageDialog(this,
             "Agregue personaje principal y castillo al catalogo",

@@ -5,17 +5,30 @@
  */
 package practica1_201020559;
 
+import java.awt.FlowLayout;
+import javax.swing.Icon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author jpara_000
  */
 public class Juego extends javax.swing.JFrame {
 
+    public int x = 0;
+    public int y = 1;
     /**
      * Creates new form Juego
      */
     public Juego() {
         initComponents();
+        NodoC refe = Practica1_201020559.catalogo.getPrimero();
+        while (refe != null){
+            labels(refe.getImagen());
+            refe = refe.getSiguiente();
+        }
+        this.validate();
+        
     }
 
     /**
@@ -34,11 +47,11 @@ public class Juego extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 604, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 489, Short.MAX_VALUE)
         );
 
         pack();
@@ -47,6 +60,21 @@ public class Juego extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    public  void labels(Icon i){
+        JLabel label = new JLabel();
+        label.setIcon(i);
+        label.setBounds(x, y, 50, 50);
+        this.add(label);
+        this.validate();
+        this.x += 50;
+        if(x>=600){
+            this.x = 0;
+            this.y += 50;
+        }
+
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
